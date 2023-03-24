@@ -1,24 +1,42 @@
 body{
-    background-color: #ffffff;
+    background-color: rgb(216, 223, 236);
     font-family: Georgia serif;
     padding: 15px;
+    color:#333;
+    font-family:'Oswald', sans-serif;
 }
 .formBuilder{
     min-width:480px;
     max-width:1600px;
 }
+h1{
+    margin-left:100px;
+    position: relative;
 
+    font-weight: 600;
+
+}
+h1::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
 .container{
 
     padding: 25px;
-    background-color: #effffc;
-    border-radius: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
     font-family: 'Caveat', cursive;
     font-family: 'Ms Madi', cursive;
     font-family: 'Oswald', sans-serif;
     width: 350px;
     display: flex; 
-    border: 3px solid black;
+    border: 1px solid #333;
     margin-bottom: 10px;
 
 }
@@ -46,10 +64,12 @@ p {
 }
 SELECT {
     width: 100px;
+    cursor:pointer;
 }
 input{
     width:90%;
     margin-bottom: 5px;
+    cursor:pointer;
 }
 
 #selectConditionType{
@@ -58,8 +78,10 @@ input{
     margin-right: 10px;
 
 }
-#conditionInput{
-    width:40%;
+#conditionInput, #conditionSelect{
+    width:43%;
+    padding: 0px;
+
 }
 
 .childInputClass{
@@ -67,8 +89,8 @@ input{
     width: 100%;
 }
 
-.addChildButton {
-    background-color: #0bdf00;
+.addChildButton, .removeButton {
+    background-color: #4070f4;
     border: 2px solid rgba(33, 68, 72, 0.59);
     height: 35px;
     width: 60px;
@@ -79,22 +101,23 @@ input{
     color: white;
     text-align: center;
     font: bold;
-    background: -webkit-linear-gradient(top, #0bdf00, #11610d);
+    /*background: -webkit-linear-gradient(top, #0bdf00, #11610d);
     background: -moz-linear-gradient(top, #0bdf00, #11610d);
     background: -o-linear-gradient(top, #0bdf00, #11610d);
     background: -ms-linear-gradient(top, #0bdf00, #11610d);
-    background: linear-gradient(top, #0bdf00, #11610d);
+    background: linear-gradient(top, #0bdf00, #11610d);*/
     border-radius: 26px;
     cursor:pointer
 }
-.addChildButton:hover{
-    background: -webkit-linear-gradient(top, #0d9106, #11610d);
+.addChildButton:hover, .removeButton:hover{
+   /* background: -webkit-linear-gradient(top, #0d9106, #11610d);
     background: -moz-linear-gradient(top, #0d9106, #11610d);
     background: -o-linear-gradient(top, #0d9106, #11610d);
     background: -ms-linear-gradient(top, #0d9106, #11610d);
-    background: linear-gradient(top, #0d9106, #11610d);
+    background: linear-gradient(top, #0d9106, #11610d);*/
+    background-color: #2d4da3;
 }
-
+/*
 .removeButton{
     background-color: #f9525a;
     height: 35px;
@@ -105,7 +128,7 @@ input{
     color: white;
     text-align: center;
     font: bold;
-    background: -webkit-linear-gradient(top, #f9525a, #b62e37);
+    /*background: -webkit-linear-gradient(top, #f9525a, #b62e37);
     background: -moz-linear-gradient(top, #f9525a, #b62e37);
     background: -o-linear-gradient(top, #f9525a, #b62e37);
     background: -ms-linear-gradient(top, #f9525a, #b62e37);
@@ -119,13 +142,13 @@ input{
     background: -o-linear-gradient(top, #d0343c, #b62e37);
     background: -ms-linear-gradient(top, #d0343c, #b62e37);
     background: linear-gradient(top, #d0343c, #b62e37);
-}
+}*/
 .buttonAdd {
     display:block;
-    margin-left: 200px;
+    margin-left: 150px;
     height: 50px;
     width: 100px;
-    background-color: rgb(102, 98, 214);
+    background-color: #4070f4;
     border:none;
     color: white;
     outline:none;
@@ -139,5 +162,5 @@ input{
 }
 
 .buttonAdd:hover{
-    background-color: rgb(19, 48, 99);
+    background-color: #2d4da3;
 }

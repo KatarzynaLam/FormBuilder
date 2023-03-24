@@ -43,6 +43,7 @@ var Form = function(formBuilderContainer, buttonAdd){
         else if (parentType == "Yes/No"){
             conditionInput = document.createElement("SELECT")
             conditionInput.setAttribute("name", "conditionSelect")
+            conditionInput.id = "conditionSelect"
             var option = document.createElement("option");
             option.value = form.conditionTypes[0];
             option.text = form.conditionTypes[0];
@@ -152,7 +153,7 @@ var Form = function(formBuilderContainer, buttonAdd){
         addChildButton.setAttribute("id", id)
 
         var removeButton = document.createElement('button')
-        removeButton.innerHTML= "x"
+        removeButton.innerHTML= "-"
         removeButton.className = 'removeButton'
         removeButton.setAttribute("id", id)
         addChildButton.addEventListener('click', form.addChild);
