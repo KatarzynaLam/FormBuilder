@@ -152,7 +152,7 @@ var Form = function(formBuilderContainer, buttonAdd){
         addChildButton.setAttribute("id", id)
 
         var removeButton = document.createElement('button')
-        removeButton.innerHTML= "-"
+        removeButton.innerHTML= "x"
         removeButton.className = 'removeButton'
         removeButton.setAttribute("id", id)
         addChildButton.addEventListener('click', form.addChild);
