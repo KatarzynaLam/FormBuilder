@@ -1,0 +1,48 @@
+body {
+  background-color: #fff;
+  padding: 15px;
+  font-family: Georgia serif;
+}
+
+.formBuilder {
+  width: 1000px;
+  margin: 50px auto;
+}
+
+.container {
+  width: 500px;
+  background-color: #effffc;
+  border: 3px solid #000;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 25px;
+  font-family: Oswald, sans-serif;
+  display: flex;
+}
+
+p {
+  margin: 0;
+}
+
+.container div {
+  height: 60px;
+  flex-direction: column;
+  justify-content: space-around;
+  display: flex;
+}
+
+.inputsClass {
+  width: 400px;
+  margin-left: 20px;
+}
+
+SELECT {
+  width: 100px;
+}
+
+.buttonAdd {
+  width: 50px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=formBuilder.60928911.css.map */

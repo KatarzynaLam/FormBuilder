@@ -1,0 +1,13 @@
+{
+  "name": "formbuilder",
+  "version": "1.0.0",
+  "main": "formBuilder.js",
+  "scripts":{
+    "start": "parcel ./formBuilder.html"
+  },
+  "author": "Katarzyna Lamczyk",
+  "dependencies": {
+    "parcel": "^2.8.3"
+  }
+
+}

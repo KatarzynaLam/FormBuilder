@@ -1,0 +1,44 @@
+body{
+    background-color: #ffffff;
+    font-family: Georgia serif;
+    padding: 15px;
+}
+.formBuilder{
+    margin: 50px auto;
+    width: 1000px;
+}
+.container{
+    padding: 25px;
+    background-color: #effffc;
+    border-radius: 15px;
+    font-family: 'Caveat', cursive;
+    font-family: 'Ms Madi', cursive;
+    font-family: 'Oswald', sans-serif;
+    width: 500px;
+    display: flex; 
+    border: 3px solid black;
+    margin-bottom: 10px;
+
+}
+p {
+    margin:0px
+}
+.container div{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60px;
+    
+    
+}
+.inputsClass {
+    margin-left: 20px;
+    width: 400px;
+}
+SELECT {
+    width: 100px;
+}
+.buttonAdd{
+    width:50px;
+    margin-top: 10px;
+}
