@@ -25,24 +25,50 @@ p {
 }
 
 .container div {
-  height: 60px;
+  height: 70px;
   flex-direction: column;
   justify-content: space-around;
-  display: flex;
+}
+
+.conditionClass {
+  display: block;
 }
 
 .inputsClass {
   width: 400px;
   margin-left: 20px;
+  display: flex;
+}
+
+.textsClass {
+  display: flex;
 }
 
 SELECT {
   width: 100px;
 }
 
+input {
+  width: 90%;
+  margin-bottom: 5px;
+}
+
 .buttonAdd {
   width: 50px;
   margin-top: 10px;
+}
+
+#selectConditionType {
+  width: 30%;
+  margin-right: 10px;
+}
+
+#conditionInput {
+  width: 40%;
+}
+
+.childInputClass {
+  width: 500px;
 }
 
 /*# sourceMappingURL=formBuilder.60928911.css.map */

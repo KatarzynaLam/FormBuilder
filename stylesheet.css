@@ -7,6 +7,7 @@ body{
     margin: 50px auto;
     width: 1000px;
 }
+
 .container{
     padding: 25px;
     background-color: #effffc;
@@ -24,21 +25,46 @@ p {
     margin:0px
 }
 .container div{
-    display:flex;
+    
     flex-direction: column;
     justify-content: space-around;
-    height: 60px;
+    height: 70px;
     
     
 }
+.conditionClass{
+    display: block;
+}
 .inputsClass {
+    display: flex;
     margin-left: 20px;
     width: 400px;
+}
+.textsClass {
+    display: flex;
 }
 SELECT {
     width: 100px;
 }
+input{
+    width:90%;
+    margin-bottom: 5px;
+}
 .buttonAdd{
     width:50px;
     margin-top: 10px;
+}
+
+#selectConditionType{
+    width:30%;
+   
+    margin-right: 10px;
+
+}
+#conditionInput{
+    width:40%;
+}
+
+.childInputClass{
+    width:500px
 }

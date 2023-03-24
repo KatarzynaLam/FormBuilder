@@ -30,9 +30,11 @@ var Form = function(formBuilderContainer, buttonAdd){
         var selectType = document.createElement("SELECT");
         selectType.id = "selectConditionType"
         selectType.setAttribute("name", "selectConditionType")
-        var conditionInput = null 
+        var conditionInput = null
+
         if(parentType == "Text"){
             conditionInput = document.createElement("INPUT")
+            conditionInput.id = "conditionInput"
             var option = document.createElement("option");
             option.value = form.conditionTypes[0];
             option.text = form.conditionTypes[0];
@@ -55,9 +57,11 @@ var Form = function(formBuilderContainer, buttonAdd){
             conditionInput.appendChild(option2)
 
         }
+        //Number
         else{
             conditionInput = document.createElement("INPUT")
             conditionInput.setAttribute("name", "conditionInput")
+            conditionInput.id = "conditionInput"
             for (var i = 0; i < form.conditionTypes.length; i++) {
                 var option = document.createElement("option");
                 option.value = form.conditionTypes[i];
