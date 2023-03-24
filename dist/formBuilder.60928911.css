@@ -5,12 +5,13 @@ body {
 }
 
 .formBuilder {
-  width: 1000px;
+  min-width: 480px;
+  max-width: 1600px;
   margin: 50px auto;
 }
 
 .container {
-  width: 500px;
+  width: 350px;
   background-color: #effffc;
   border: 3px solid #000;
   border-radius: 15px;
@@ -59,7 +60,7 @@ input {
 }
 
 #selectConditionType {
-  width: 30%;
+  width: 45%;
   margin-right: 10px;
 }
 
@@ -68,7 +69,7 @@ input {
 }
 
 .childInputClass {
-  width: 500px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=formBuilder.60928911.css.map */

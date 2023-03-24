@@ -5,17 +5,20 @@ body{
 }
 .formBuilder{
     margin: 50px auto;
-    width: 1000px;
+   
+    min-width:480px;
+    max-width:1600px;
 }
 
 .container{
+    
     padding: 25px;
     background-color: #effffc;
     border-radius: 15px;
     font-family: 'Caveat', cursive;
     font-family: 'Ms Madi', cursive;
     font-family: 'Oswald', sans-serif;
-    width: 500px;
+    width: 350px;
     display: flex; 
     border: 3px solid black;
     margin-bottom: 10px;
@@ -56,8 +59,8 @@ input{
 }
 
 #selectConditionType{
-    width:30%;
-   
+    width:45%;
+    
     margin-right: 10px;
 
 }
@@ -66,5 +69,5 @@ input{
 }
 
 .childInputClass{
-    width:500px
+    width: 100%;
 }
