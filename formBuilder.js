@@ -1,22 +1,5 @@
 var Form = function(formBuilderContainer, buttonAdd){
-    let formChildInput = {
-        id:-1,
-        buttonAddChild : null,
-        buttonRemoveChild : null,
-        parentType : null,
-        condition : null,
-        formChildInput: this.formChildInput  //tablica
-
-    }
-    let formParentInput={
-        id:-1,
-        buttonAddChild: null,
-        buttonRemove : null,
-        type : null,
-        question : null,
-        formChild: formChildInput //tablica
-    }
-
+ 
     let form={
         formBuilder: formBuilderContainer,
         types: ["Text", "Number", "Yes/No"],
@@ -131,7 +114,7 @@ var Form = function(formBuilderContainer, buttonAdd){
         return inputsClass
     }
     form.addChild = e =>{
-       
+        e.preventDefault();
         var childInputClass = document.createElement('div')
         childInputClass.className = form.formChildClassName
         childInputClass.setAttribute("id", id)
@@ -155,7 +138,7 @@ var Form = function(formBuilderContainer, buttonAdd){
         id+=1
     }
     form.remove = e =>{
-       
+        e.preventDefault();
         document.getElementById(e.target.id).remove()
     }
     form.addButtonClass = () => {
@@ -175,7 +158,6 @@ var Form = function(formBuilderContainer, buttonAdd){
     }
 
     form.addFormParentInput = () =>{
-        console.log("hh");
 
         var parentInputClass = document.createElement('div')
         parentInputClass.className = form.formParentClassName
@@ -208,129 +190,7 @@ var Form = function(formBuilderContainer, buttonAdd){
 
 const formBuilderContainer = document.querySelector("formBuilder");
 const buttonAdd =  document.querySelector("buttonAdd");
-const buttonSend = document.querySelector("buttonSend");
-var form = Form(formBuilderContainer,buttonAdd)
 
-const formInputs = document.querySelector(".formInput")
+var form = Form(formBuilderContainer,buttonAdd)
 document.querySelector('.buttonAdd').addEventListener('click', form.addFormParentInputOnClick);
 
-
-
-
-
-
-
-// var fetchData = () => {
-//     var parentTab = {}
-//     var parentsClasses = document.getElementsByClassName("parentInputClass")
-//     var numberOfParents = parentsClasses.length
-//     for(var i=0; i<numberOfParents;i++){
-//             parentTab[i]={}
-//             parentTab[i].type = "Yes/No"
-//             parentTab[i].question = "Do you?"
-//             parentTab[i].childTab={}
-//             var child = document.getElementsByClassName("parentInputClass")[i].querySelector(".childInputClass")
-//             if(child!=null){
-//                 findChild(parentTab[i].childTab, child, parentTab[i].type)
-//                 //console.log(parentTab[i])
-//             }
-//     }
-//    return parentTab
-// }
-
-
-
-// var childTab = [{
-//     parentType:"",
-//     conditionType:"",
-//     conditionText:"",
-//     question:"",
-//     type:"",
-//     childTab:childTab
-// }]
-// var parentTab = [{
-//     question:"",
-//     type:"",
-//     childTab:childTab
-// }]
-
-
-
-var findChild = (tab, childClass, parentType) =>{
-    var child = childClass.querySelector(".childInputClass")
-    var amountOfChildren = 0
-    if(tab == undefined){
-        tab = {}
-    }
-   
-    if(tab.childTab == undefined){
-        tab.childTab = {}
-    }
-    
-    if(child!=null){
-        //parentTab[i].childTab={}
-        findChild(tab.childTab[amountOfChildren], child, parentType)
-        var nextChild = childClass.nextChild
-        amountOfChildren+=1
-        if(nextChild!=null){
-            findChild(tab.childTab[amountOfChildren], nextChild, parentType)
-        }
-        else{
-            tab.parentType = parentType
-            tab.conditionType = "Equalms"
-            tab.conditionText = "cztermy"
-            tab.conditionText = "are youl?"
-            tab.type = "yes/nol"
-            // var sibiling = tab.nextSibling
-            // if(sibiling!=null){
-
-            //     findChild(tab[Object.keys(tab.childTab).length].childTab[tab.childTab.length], sibiling, parentType)
-            // }
-        }
-    }
-    else{
-        tab.parentType = parentType
-        tab.conditionType = "Equals"
-        tab.conditionText = "cztery"
-        tab.conditionText = "are you?"
-        tab.type = "yes/no"
-        tab.childTab = null
-        
-    }
-    console.log(tab)
-}
-
-
-
-
-
-
-
-formInputs.addEventListener('submit', function (e){
-    var formData = document.querySelector("form")
-var data = new FormData(formData)
-console.log("dsgsggw")
-console.log(data.data)
-console.log("dsgsggw")
-    e.preventDefault();
-    var parentTab = {}
-    var parentsClasses = document.getElementsByClassName("parentInputClass")
-    var numberOfParents = parentsClasses.length
-    for(var i=0; i<numberOfParents;i++){
-            parentTab[i]={}
-            parentTab[i].type = "Yes/No"
-            parentTab[i].question = "Do you?"
-            parentTab[i].childTab={}
-            var child = document.getElementsByClassName("parentInputClass")[i].querySelector(".childInputClass")
-            var amountOfChildren = 0
-            while(child!=null){
-                parentTab[i].childTab[amountOfChildren] = {}
-                findChild(parentTab[i].childTab[amountOfChildren], child, parentTab[i].type)
-                child = child.nextSibling
-                amountOfChildren+=1
-                //console.log(parentTab[i])
-            }
-    }
-    console.log(parentTab)
-
-});
