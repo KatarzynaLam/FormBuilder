@@ -1,6 +1,5 @@
-var Form = function(formBuilderContainer, buttonAdd) {
+var Form = function(buttonAdd) {
     let form = {
-        formBuilder: formBuilderContainer,
         types: [
             "Text",
             "Number",
@@ -23,41 +22,40 @@ var Form = function(formBuilderContainer, buttonAdd) {
         buttonAddParentInput: buttonAdd,
         formClass: document.getElementsByClassName("formInput")[0],
         formParentClassName: "parentInputClass",
-        formChildClassName: "childInputClass",
-        formInput: {
-            formParent: new Array() //tablica glownych
-        }
+        formChildClassName: "childInputClass"
     };
     var id = 0;
-    //create class parent input 
-    //create class strings
-    //create string "Question"
-    //create string "Type"
-    //create class inputs 
-    //create input text
-    //create type
-    //button
-    // document.getElementById("selectParentType").selectedOptions[0].value
+    form.remove = (e)=>{
+        e.preventDefault();
+        document.getElementById(e.target.id).remove();
+    };
     form.createConditionClass = (parentType)=>{
+        //Create a select for condition in sub-inputs
         var selectType = document.createElement("SELECT");
         selectType.id = "selectConditionType";
         selectType.setAttribute("name", "selectConditionType");
         var conditionInput = null;
         if (parentType == "Text") {
+            //Create an input for text type condition in sub-inputs
             conditionInput = document.createElement("INPUT");
             conditionInput.id = "conditionInput";
+            conditionInput.setAttribute("placeholder", " Text");
+            //Create an option for condition select in sub-inputs
             var option = document.createElement("option");
             option.value = form.conditionTypes[0];
             option.text = form.conditionTypes[0];
             selectType.appendChild(option);
         } else if (parentType == "Yes/No") {
+            //Create a button for adding sub-inputs
             conditionInput = document.createElement("SELECT");
             conditionInput.setAttribute("name", "conditionSelect");
             conditionInput.id = "conditionSelect";
+            //Create options for condition select in sub-inputs
             var option = document.createElement("option");
             option.value = form.conditionTypes[0];
             option.text = form.conditionTypes[0];
             selectType.appendChild(option);
+            //Create options for Yes/No condition select in sub-inputs
             var option1 = document.createElement("option");
             option1.value = "Yes";
             option1.text = "Yes";
@@ -67,9 +65,12 @@ var Form = function(formBuilderContainer, buttonAdd) {
             option2.text = "No";
             conditionInput.appendChild(option2);
         } else {
+            //Create an input for number type condition in sub-inputs
             conditionInput = document.createElement("INPUT");
             conditionInput.setAttribute("name", "conditionInput");
             conditionInput.id = "conditionInput";
+            conditionInput.setAttribute("placeholder", " Number");
+            //Create options for condition select in sub-inputs
             for(var i = 0; i < form.conditionTypes.length; i++){
                 var option = document.createElement("option");
                 option.value = form.conditionTypes[i];
@@ -83,15 +84,23 @@ var Form = function(formBuilderContainer, buttonAdd) {
         conditionClass.appendChild(conditionInput);
         return conditionClass;
     };
-    form.createTextClass = (strArray)=>{
-        var textsClass = document.createElement("div");
-        textsClass.className = "textsClass";
-        for(var i = 0; i < strArray.length; i++){
-            var text = document.createElement("p");
-            text.innerHTML = strArray[i];
-            textsClass.appendChild(text);
-        }
-        return textsClass;
+    form.addButtonClass = ()=>{
+        //Create a button for adding sub-inputs
+        var addChildButton = document.createElement("button");
+        addChildButton.className = "addChildButton";
+        addChildButton.innerHTML = "+";
+        addChildButton.setAttribute("id", id);
+        //Create a button for removing branch
+        var removeButton = document.createElement("button");
+        removeButton.innerHTML = "-";
+        removeButton.className = "removeButton";
+        removeButton.setAttribute("id", id);
+        addChildButton.addEventListener("click", form.addChild);
+        removeButton.addEventListener("click", form.remove);
+        return [
+            addChildButton,
+            removeButton
+        ];
     };
     form.createInputsClass = (isParent, parentType)=>{
         var inputsClass = document.createElement("div");
@@ -112,6 +121,7 @@ var Form = function(formBuilderContainer, buttonAdd) {
             option.text = form.types[i];
             selectType.appendChild(option);
         }
+        //Adding conditions for sub-inputs
         if (isParent == false) {
             var conditionClass = form.createConditionClass(parentType);
             inputsClass.appendChild(conditionClass);
@@ -120,6 +130,36 @@ var Form = function(formBuilderContainer, buttonAdd) {
         inputsClass.appendChild(selectType);
         return inputsClass;
     };
+    //Creates text "Condition, Question, Type"
+    form.createTextClass = (strArray)=>{
+        var textsClass = document.createElement("div");
+        textsClass.className = "textsClass";
+        for(var i = 0; i < strArray.length; i++){
+            var text = document.createElement("p");
+            text.innerHTML = strArray[i];
+            textsClass.appendChild(text);
+        }
+        return textsClass;
+    };
+    //Creates parent input
+    form.addFormParentInput = ()=>{
+        var parentInputClass = document.createElement("div");
+        parentInputClass.className = form.formParentClassName;
+        parentInputClass.setAttribute("id", id);
+        var container = document.createElement("div");
+        container.className = "container";
+        var textsClass = form.createTextClass(form.parentText);
+        var inputsClass = form.createInputsClass(true);
+        var buttons = form.addButtonClass();
+        container.appendChild(textsClass);
+        container.appendChild(inputsClass);
+        container.appendChild(buttons[0]);
+        container.appendChild(buttons[1]);
+        parentInputClass.appendChild(container);
+        form.formClass.appendChild(parentInputClass);
+        id += 1;
+    };
+    //Creates sub-input
     form.addChild = (e)=>{
         e.preventDefault();
         var childInputClass = document.createElement("div");
@@ -143,51 +183,13 @@ var Form = function(formBuilderContainer, buttonAdd) {
         parent.appendChild(childInputClass);
         id += 1;
     };
-    form.remove = (e)=>{
-        e.preventDefault();
-        document.getElementById(e.target.id).remove();
-    };
-    form.addButtonClass = ()=>{
-        var addChildButton = document.createElement("button");
-        addChildButton.className = "addChildButton";
-        addChildButton.innerHTML = "+";
-        addChildButton.setAttribute("id", id);
-        var removeButton = document.createElement("button");
-        removeButton.innerHTML = "-";
-        removeButton.className = "removeButton";
-        removeButton.setAttribute("id", id);
-        addChildButton.addEventListener("click", form.addChild);
-        removeButton.addEventListener("click", form.remove);
-        return [
-            addChildButton,
-            removeButton
-        ];
-    };
-    form.addFormParentInput = ()=>{
-        var parentInputClass = document.createElement("div");
-        parentInputClass.className = form.formParentClassName;
-        parentInputClass.setAttribute("id", id);
-        var container = document.createElement("div");
-        container.className = "container";
-        var textsClass = form.createTextClass(form.parentText);
-        var inputsClass = form.createInputsClass(true);
-        var buttons = form.addButtonClass();
-        container.appendChild(textsClass);
-        container.appendChild(inputsClass);
-        container.appendChild(buttons[0]);
-        container.appendChild(buttons[1]);
-        parentInputClass.appendChild(container);
-        form.formClass.appendChild(parentInputClass);
-        id += 1;
-    };
     form.addFormParentInputOnClick = ()=>{
         form.addFormParentInput();
     };
     return form;
 };
-const formBuilderContainer = document.querySelector("formBuilder");
 const buttonAdd = document.querySelector("buttonAdd");
-var form = Form(formBuilderContainer, buttonAdd);
+var form = Form(buttonAdd);
 document.querySelector(".buttonAdd").addEventListener("click", form.addFormParentInputOnClick);
 
 //# sourceMappingURL=formBuilder.f20f4dac.js.map
