@@ -1,12 +1,11 @@
-var Form = function(buttonAdd){
+var Form = function(formClass){
  
-    let form={
+    let form = {
         types: ["Text", "Number", "Yes/No"],
-        parentText:["Question", "Types"],
-        childText:["Condition","Question", "Types"],
+        parentText: ["Question", "Types"],
+        childText: ["Condition","Question", "Types"],
         conditionTypes: ["Equals", "Greater than", "Less than"],
-        buttonAddParentInput: buttonAdd,
-        formClass: document.getElementsByClassName("formInput")[0],
+        formClass: formClass,
         formParentClassName: "parentInputClass",
         formChildClassName: "childInputClass",
     }
@@ -202,7 +201,8 @@ var Form = function(buttonAdd){
     return form
 }
 
-const buttonAdd =  document.querySelector("buttonAdd");
-var form = Form(buttonAdd)
-document.querySelector('.buttonAdd').addEventListener('click', form.addFormParentInputOnClick);
 
+var formClass = document.getElementsByClassName("formInput")[0];
+var form = Form(formClass)
+const buttonAdd =  document.querySelector('.buttonAdd');
+buttonAdd.addEventListener('click', form.addFormParentInputOnClick);

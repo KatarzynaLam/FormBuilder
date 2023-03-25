@@ -5,17 +5,18 @@ body{
     color:#333;
     font-family:'Oswald', sans-serif;
 }
+
 .formBuilder{
     min-width:480px;
     max-width:1600px;
 }
+
 h1{
     margin-left:100px;
     position: relative;
-
     font-weight: 600;
-
 }
+
 h1::before{
     content: "";
     position: absolute;
@@ -26,8 +27,8 @@ h1::before{
     border-radius: 8px;
     background-color: #4070f4;
 }
-.container{
 
+.container{
     padding: 25px;
     background-color: #ffffff;
     border-radius: 5px;
@@ -38,55 +39,55 @@ h1::before{
     display: flex; 
     border: 1px solid #333;
     margin-bottom: 10px;
-
 }
+
 p {
     margin:0px
 }
+
 .container div{
     
     flex-direction: column;
     justify-content: space-around;
-    height: 70px;
-    
-    
+    height: 70px;   
 }
+
 .conditionClass{
     display: block;
 }
+
 .inputsClass {
     display: flex;
     margin-left: 20px;
     width: 400px;
 }
+
 .textsClass {
     display: flex;
 }
+
 SELECT {
     width: 100px;
     cursor:pointer;
 }
+
 input{
     width:90%;
     margin-bottom: 5px;
-    cursor:pointer;
-   
+    cursor:pointer;  
 }
 
 #selectConditionType{
     width:43%;
-    
     margin-right: 10px;
-
 }
+
 #conditionInput, #conditionSelect{
-   
     width:43%;
     padding:0px;
 }
 
 .childInputClass{
-
     width: 100%;
 }
 
@@ -102,48 +103,13 @@ input{
     color: white;
     text-align: center;
     font: bold;
-    /*background: -webkit-linear-gradient(top, #0bdf00, #11610d);
-    background: -moz-linear-gradient(top, #0bdf00, #11610d);
-    background: -o-linear-gradient(top, #0bdf00, #11610d);
-    background: -ms-linear-gradient(top, #0bdf00, #11610d);
-    background: linear-gradient(top, #0bdf00, #11610d);*/
     border-radius: 26px;
     cursor:pointer
 }
 .addChildButton:hover, .removeButton:hover{
-   /* background: -webkit-linear-gradient(top, #0d9106, #11610d);
-    background: -moz-linear-gradient(top, #0d9106, #11610d);
-    background: -o-linear-gradient(top, #0d9106, #11610d);
-    background: -ms-linear-gradient(top, #0d9106, #11610d);
-    background: linear-gradient(top, #0d9106, #11610d);*/
     background-color: #2d4da3;
 }
-/*
-.removeButton{
-    background-color: #f9525a;
-    height: 35px;
-    width: 60px;
-    font-size: 17px;
-    border:none;
-    margin-right: 10px;
-    color: white;
-    text-align: center;
-    font: bold;
-    /*background: -webkit-linear-gradient(top, #f9525a, #b62e37);
-    background: -moz-linear-gradient(top, #f9525a, #b62e37);
-    background: -o-linear-gradient(top, #f9525a, #b62e37);
-    background: -ms-linear-gradient(top, #f9525a, #b62e37);
-    background: linear-gradient(top, #f9525a, #b62e37);
-    border-radius: 26px;
-    cursor:pointer
-}
-.removeButton:hover{
-    background: -webkit-linear-gradient(top, #d0343c, #b62e37);
-    background: -moz-linear-gradient(top, #d0343c, #b62e37);
-    background: -o-linear-gradient(top, #d0343c, #b62e37);
-    background: -ms-linear-gradient(top, #d0343c, #b62e37);
-    background: linear-gradient(top, #d0343c, #b62e37);
-}*/
+
 .buttonAdd {
     display:block;
     margin-left: 150px;
@@ -158,8 +124,7 @@ input{
     font-family:'Quicksand', sans-serif;
     font-size:16px;
     font-weight: 500;
-    cursor:pointer
-    
+    cursor:pointer  
 }
 
 .buttonAdd:hover{
